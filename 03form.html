@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>03form.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+ 	<script type="text/javascript">
+ 		window.onload = function()
+ 		{
+ 			var xhr = null;
+ 			var btn = document.getElementById("btn");
+ 				if(window.XMLHttpRequest)
+	 			{
+	 				xhr = new XMLHttpRequest();
+	 			}
+	 			else
+	 			{
+	 				xhr = new ActiveXObject('Microsoft.XMLHTTP');
+	 			}
+	 			xhr.open('get','03form.php',true);
+	 			xhr.send(null);
+	 			xhr.onreadystatechange = function()
+	 			{
+	 				if(xhr.readyState == 4)
+	 				{
+	 					if(xhr.status == 200)
+	 					{
+	 						var data = xhr.responseText;
+	 						//var data = xhr.responseXML;
+	 					}
+	 				}
+	 			}
+ 		}
+ 	</script>
+  </head>
+  
+  <body>
+    <div>
+    	<div id="showInfo"></div>
+    	<form>
+    		用户名: <input type="text" name="username" id="username"><br>
+			密&nbsp;&nbsp;码: <input type="password" name="password" id="password"><br> 
+			<input type="submit" value="提交" id="btn">   		
+    	</form>
+    </div>
+  </body>
+</html>
